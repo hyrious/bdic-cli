@@ -20,7 +20,14 @@ sade('bdic <word>')
 
 async function text(/** @type {Response} */ response) {
   if (!response.ok) {
-    const message = await response.text()
+    spinner?.stop()
+    let message = await response.text()
+    // The service returns an HTML page, parse useful contents
+    if (message.startsWith('<!')) {
+      const $ = cheerio.load(message)
+      const sc_error = $('.sc_error').text()
+      if (sc_error) message = sc_error
+    }
     console.error(chalk.red(message || response.statusText))
     process.exit(1)
   }

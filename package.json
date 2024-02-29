@@ -1,24 +1,30 @@
 {
   "name": "@hyrious/bdic-cli",
+  "type": "module",
   "version": "0.1.0",
   "description": "Simply rewrites Fuxy526/bdic-cli",
+  "author": "hyrious <hyrious@outlook.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyrious/bdic-cli.git"
+  },
   "keywords": [
     "dictionary",
     "cli",
     "Chinese"
   ],
-  "repository": "hyrious/bdic-cli",
-  "license": "MIT",
-  "author": "hyrious <hyrious@outlook.com>",
-  "type": "module",
   "exports": "./index.js",
   "bin": {
-    "bdic": "./cli.js"
+    "bdic": "cli.js"
   },
   "files": [
     "cli.js",
     "index.js"
   ],
+  "engines": {
+    "node": ">=18"
+  },
   "dependencies": {
     "chalk": "^5.3.0",
     "cheerio": "1.0.0-rc.12",
@@ -27,8 +33,5 @@
   },
   "devDependencies": {
     "@types/node": "18.x"
-  },
-  "engines": {
-    "node": ">=18"
   }
 }
